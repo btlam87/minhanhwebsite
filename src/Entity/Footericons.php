@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FootericonsRepository")
+ * @Vich\Uploadable()
  */
 class Footericons
 {
@@ -20,6 +22,11 @@ class Footericons
      * @ORM\Column(type="string", length=255)
      */
     private $thumb;
+
+    /**
+     * @Vich\UploadableField(mapping = "iconsthumb", fileNameProperty="thumb")
+     */
+    private $thumbFile;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -41,6 +48,17 @@ class Footericons
         $this->thumb = $thumb;
 
         return $this;
+    }
+
+    public function getThumbFile()
+    {
+        return $this->thumbFile;
+    }
+
+    public function setThumbFile($thumbFile): void
+    {
+        $this->thumbFile = $thumbFile;
+        
     }
 
     public function getLink(): ?string

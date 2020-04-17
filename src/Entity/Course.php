@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints\DateTime;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
+ * @Vich\Uploadable()
  */
 class Course
 {
@@ -47,6 +49,11 @@ class Course
     private $thumb;
 
     /**
+     * @Vich\UploadableField(mapping = "coursethumb", fileNameProperty="thumb")
+     */
+    private $thumbFile;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $status;
@@ -70,6 +77,11 @@ class Course
      * @ORM\Column(type="text")
      */
     private $content;
+
+    public function __construct()
+    {
+        $this->modifieddate = new \DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -146,6 +158,20 @@ class Course
         $this->thumb = $thumb;
 
         return $this;
+    }
+
+    public function getThumbFile()
+    {
+        return $this->thumbFile;
+    }
+
+    public function setThumbFile($thumbFile): void
+    {
+        $this->thumbFile = $thumbFile;
+        if ($thumbFile)
+        {
+            $this->modifieddate = new \DateTime();
+        }
     }
 
     public function getStatus(): ?bool

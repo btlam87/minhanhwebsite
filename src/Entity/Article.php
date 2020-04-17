@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable()
  */
 class Article
 {
@@ -32,10 +34,18 @@ class Article
      */
     private $thumb;
 
-      /**
+    /**
+     * @Vich\UploadableField(mapping = "articlethumb", fileNameProperty="thumb")
+     */
+    private $thumbFile;
+
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $keywords;
+
+
 
     /**
      * @ORM\Column(type="text")
@@ -67,6 +77,11 @@ class Article
      * @ORM\ManyToOne(targetEntity="App\Entity\Skill")
      */
     private $skill;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
 
     public function __construct()
     {
@@ -108,11 +123,25 @@ class Article
         return $this->thumb;
     }
 
-    public function setThumb(string $thumb): self
+    public function setThumb(?string $thumb): self
     {
         $this->thumb = $thumb;
 
         return $this;
+    }
+
+    public function getThumbFile()
+    {
+        return $this->thumbFile;
+    }
+
+    public function setThumbFile($thumbFile): void
+    {
+        $this->thumbFile = $thumbFile;
+        if ($thumbFile)
+        {
+            $this->updatedate = new \DateTime();
+        }
     }
 
     public function getKeywords(): ?string
@@ -195,6 +224,18 @@ class Article
     public function setSkill(?Skill $skill): self
     {
         $this->skill = $skill;
+
+        return $this;
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

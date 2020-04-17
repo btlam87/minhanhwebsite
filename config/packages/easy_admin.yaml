@@ -1,12 +1,197 @@
 easy_admin:
-   entities:
-       # List the entity class name you want to manage
-       - App\Entity\Article
-       - App\Entity\Articletype
-       - App\Entity\Skill
-       - App\Entity\Course
-       - App\Entity\Coursegroup
-       - App\Entity\Videos
-       - App\Entity\Contacts
-       - App\Entity\Qa
-       - App\Entity\Footericons
+    design:
+        assets:
+            js: 
+             - '/bundles/cksourceckfinder/ckfinder/ckfinder.js'
+             - '/js/setup-ckfinder.js'
+        form_theme:
+            - '@EasyAdmin/form/bootstrap_4.html.twig'
+            - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        menu:
+          - {label: "Menu"}
+          - label: "Thường xuyên thao thác"
+            children:
+               - {entity: 'Article', label: "Quản lý bài viết", icon: "th-list"} 
+               - {entity: 'Course', label: "Quản lý khóa học", icon: 'th-list'}
+               - {entity: 'Videos', label: "Quản lý các videos", icon: 'th-list'}
+               - {entity: 'Message', label: "Yêu cầu tư vấn", icon: 'th-list'}
+               - {entity: 'Qa', label: "Hỏi đáp", icon: 'th-list'}
+          - label: "Hạn chế thao tác"
+            children:
+               - {entity: 'Articletype', label: "Quản lý loại bài viết", icon: "th-list"} 
+               - {entity: 'Skill', label: "Quản lý nhóm kỹ năng", icon: 'th-list'}
+               - {entity: 'Coursegroup', label: "Quản lý nhóm khóa học", icon: 'th-list'}
+               - {entity: 'Contacts', label: "Quản lý các liên hệ", icon: 'th-list'}
+               - {entity: 'Footericons', label: "Quản lý các kênh truyền thông", icon: 'th-list'}
+          
+          - {label: "Quản lý Admin"}
+          - {entity: 'User', label: 'Nhân viên quản trị', icon: 'user'}
+    site_name: "Minh Anh Admin"
+
+    entities:
+        #Entities to manage
+        Article:
+            class: App\Entity\Article
+            label: "Bài viết"
+            form:
+                title: "Viết bài mới"
+                fields:
+                - {type: 'group', css_class: 'col-lg-6', label: "Thông tin cơ bản"}
+                - {property: 'name', label: "Tên bài viết"}
+                - {property: 'thumbFile', type: 'vich_image', label: "Hình đại diện", help: 'Kích thướt hiển thị tốt nhất: 800x450px'}
+                - {property: 'type', label: "Loại bài viết"}
+                - {property: 'skill', label: "Bài viết cho kỹ năng nào", help: 'Chọn một kỹ năng, cho bài viết loại "Kỹ Năng"'}
+                - {property: "status", label: "Check là hiện bài, bỏ uncheck là ẩn bài"}
+                - {type: 'group', css_class: 'col-lg-6', label: "Thông tin nâng cao cho SEO"}
+                - {property: 'description', label: "Mô tả ngắn về bài viết"}
+                - {property: 'keywords', label: "Từ khóa", help: 'Nhập vào 3 từ khóa mà bạn nghĩ google dễ tìm nội dung bài này, mỗi từ khóa cách nhau bởi dấu phẩy ",".'}
+                - {property: 'author', label: "Tác giả bài viết"}
+                - {type: 'group', css_class: 'col-lg-12'}
+                - {property: 'content', type: 'fos_ckeditor', label: 'Nội dung'}
+                # - {property: 'content', label: 'Nội dung', type: 'fos_ckeditor', type_options: { 'config': { 'toolbar': [ { name: 'styles', items: ['Bold', 'Italic', 'BulletedList', 'Link']}, { name: 'clipboard', items: ['Undo', 'Redo'] },{name: 'styles',items: ['Format', 'Font', 'FontSize']}, { name: 'colors',items: ['TextColor', 'BGColor']}, { name: 'align', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']}, { name: 'insert', items: ['Image', 'Table']}, { name: "styles", groups: ["styles"]}]}}}
+            edit:
+                title: "Sửa bài"
+            list:
+                fields: [{property: 'name', label: "Tên bài viết"}, {property: 'thumb', type: 'image',base_path: '%uploads_path%', label: 'Hình đại diện'},{property: 'type', label: 'Loại'}, {property: 'createdate', label: "Ngày tạo"}, {property: 'updatedate', label: 'Chỉnh sửa'}]
+            
+            show:
+                fields:
+                    - {property: 'name', label: "Tên bài viết"}
+                    - {property: 'thumb', label: 'Hình đại diện', type: 'image'}
+        Articletype:
+            class: App\Entity\Articletype
+            label: "Danh sách loại bài viết"
+            form:
+                fields:
+                    - {property: 'name', label: 'Tên loại bài viết'}
+            list:
+                fields:
+                    - id
+                    - {property: 'name', label: 'Tên loại bài viết'}
+
+        Skill:
+            class: App\Entity\Skill
+            label: "Kỹ năng"
+            form:
+                fields:
+                    - {property: 'name', label: 'Tên kỹ năng', help: 'Khi đặt tên nên có thêm tiếng Anh vào tiêu đề'}
+            list:
+                fields:
+                    - id
+                    - {property: 'name', label: 'Tên kỹ năng'}
+        Course:
+            class: App\Entity\Course
+            label: "Khóa học"
+            form: 
+                fields:
+                    - {type: 'group', label: 'Thông tin cơ bản', css_class: 'col-lg-6'}
+                    - {property: 'name', label: 'Tên khóa học'}
+                    - {property: 'coursegroup', label: 'Nhóm lớn của khóa học'}
+                    - {property: 'thumbFile', label: 'Hình đại diện', type: 'vich_image', help: "Hình theo tỉ lệ: 800x450px để hiển thị tốt nhất"}
+                    - {property: 'fee', label: 'Học phí', help: 'Nhập dã số, không cách không chấm. Đơn vị tính VND'}
+                    - {property: 'discount', label: "Discount - % giảm giá", help: 'Nếu không có thì để trống'}
+                    - {property: 'trainingtime', label: "Thời gian đào tạo:", help: 'Đơn vị: Tuần'}
+                    - {type: 'group', label: 'Thông tin nâng cao cho SEO', css_class: 'col-lg-6'}
+                    - {property: 'description', label: "Mô tả ngắn về bài viết"}
+       
+                    - {property: 'keywords', label: "Từ khóa", help: 'Nhập vào 3 từ khóa mà bạn nghĩ google dễ tìm nội dung bài này, mỗi từ khóa cách nhau bởi dấu phẩy ",".'}
+                    - {property: "status", label: "Check là hiện bài, bỏ uncheck là ẩn bài"}
+                    - {type: 'group', css_class: 'col-lg-12'}
+                    - {property: 'content', type: 'fos_ckeditor', label: 'Nội dung'}
+            edit:
+                label: "Chỉnh sửa" 
+            list:
+                fields:
+                    - {property: 'coursegroup', label: 'Nhóm lớn'}
+                    - {property: 'name', label: 'Tên khóa học'}
+                    - {property: 'thumb', label: 'Hình đại diện', type: 'image', base_path: '%uploads_path%'}
+                    - {property: 'fee', label: 'Học phí' }
+                    - {property: 'modifieddate', label: 'Ngày cập nhật'}
+
+
+        Coursegroup:
+            class: App\Entity\Coursegroup
+            label: "Danh sánh nhóm khóa học"
+            form:
+                fields: 
+                    - {property: 'name', label: "Tên nhóm khóa học"}
+                    
+            list:
+                fields:
+                    - id
+                    - {property: 'name', label: "Tên nhóm khóa học"}
+                    
+        Videos:
+            class: App\Entity\Videos
+            label: "Danh sách videos"
+            form:
+                fields:
+                    - {property: "position", label: "Vị trí hiển hị"}
+                    - {property: 'name', label: "Tên video"}
+                    - {property: 'Link', label: "Link video"}
+                    - {property: "status", label: "Check là hiện bài, bỏ uncheck là ẩn bài"}
+            list:
+                fields:
+                    - {property: "position", label: "Vị trí hiển hị"}
+                    - {property: 'name', label: "Tên video"}
+                    - {property: 'Link', label: "Link video"}
+                    - {property: "status", label: "Hiện - Ẩn"}
+
+
+        Contacts: 
+            class: App\Entity\Contacts
+            label: "Danh sách các liên hệ"
+            form:
+                fields: 
+                    - {property: 'name', label: "Loại thông tin liên hệ"}
+                    - {property: 'info', label: "Thông tin"}
+            list:
+                fields:
+                    - id
+                    - {property: 'name', label: "Loại thông tin liên hệ"}
+                    - {property: 'info', label: "Thông tin"}
+        Qa:
+            class: App\Entity\Qa
+            label: "Danh sách các câu hỏi đáp"
+            form:
+                fields: 
+                    - {property: 'question', label: "Câu hỏi"}
+                    - {property: 'answer', label: "Câu trả lời"}
+                    - {property: 'position', label: "Thứ tự hiển thị"}
+            list:
+                fields:
+                    - id 
+                    - {property: 'position', label: "Thứ tự hiển thị"}
+                    - {property: 'question', label: "Câu hỏi"}
+                    - {property: 'answer', label: "Câu trả lời"}
+
+        Footericons: 
+            class: App\Entity\Footericons
+            label: "Danh sách các kênh truyền thông"
+            form:
+                fields:
+                    - {property: 'thumbFile', type: 'vich_image', label: "Icon đại diện", help: 'Kích thướt 100 x 100 px hiển thị tốt nhất'}
+                    - {property: 'link', label: "Link to: "}
+            list: 
+                fields: 
+                    - id
+                    - {property: 'thumb', type: 'image', label: "Icon đại diện", base_path: '%uploads_path%'}
+                    - {property: 'link', label: "Link: "}
+
+        Message: 
+            class: App\Entity\Message
+            label: "Danh sách yêu cầu tư vấn"
+            list:
+                fields:
+                    - {property: 'fullname', label: 'Tên'}
+                    - {property: 'phone', label: "Điện thoại"}
+                    - {property: 'email', label: "Email"}
+                    - {property: 'mess', label: "Tin nhắn"}
+                    - {property: 'status', label: "Đánh dấu xử lý"}
+                actions: 
+                    display: "none"
+
+
+        User:
+            class: App\Entity\User
+            label: "Danh sách quản trị viên" 
