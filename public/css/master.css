@@ -1,0 +1,151 @@
+.minhanhcolor{
+  color: #045c32;
+}
+.btn-outline-minhanhcolor{
+  color: #045c32;
+  border-color: #045c32;
+}
+.btn-outline-minhanhcolor:hover{
+  background-color: #045c32;
+  color: white;
+}
+.course{
+  color:black;
+}
+.course:hover{
+  text-decoration: none;
+  color: #045c32;
+}
+.article_title{
+  text-decoration: none;
+  color: inherit;
+}
+.minhanhbg{
+  background-color:  #045c32;
+}
+.color-white{
+  color: white;
+}
+.minhanh_blue_link{
+  text-decoration: none;
+  color: #045c32;
+}
+.minhanh_blue_link:hover{
+  text-decoration: none;
+  color: red;
+}
+.minhanh_blue_link_big{
+  text-decoration: none;
+  color: #045c32;
+  font-weight: bold;
+}
+.minhanh_blue_link_big:hover{
+  text-decoration: none;
+  color: red;
+}
+.minhanh_black_link{
+  text-decoration: none;
+  color: black;
+
+}
+.minhanh_black_link:hover{
+  text-decoration: none;
+  color: #045c35;
+}
+.minhanh_black_link_big{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.minhanh_black_link_big:hover{
+  text-decoration: none;
+  color: #045c35;
+}
+
+.footer_list li{
+  list-style: none;
+
+}
+.footer_list{
+  padding-left: 0px;
+}
+.brandname{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.social_icon img{
+  height: 40px;
+  weight:40px;
+}
+.small_link{
+  text-decoration: none;
+  color: black;
+}
+.small_link:hover{
+  color:#045c32;
+  text-decoration: none;
+}
+.date{
+  color: #a1a1a1;
+  font-style: italic;
+  font-size: 8pt;
+}
+.mt-15
+{
+  margin-top: 15px;
+}
+.mtb-15
+{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.minhanh_link_1{
+  text-decoration: none;
+  color: #045c32;
+  list-style: none;
+}
+.minhanh_link_1:hover{
+  list-style: none;
+
+}
+.course_list{
+  list-style: none;
+  padding-left: 0px;
+}
+.article_info{
+  color: #a1a1a1;
+  font-style: italic;
+  font-size: 8pt;
+}
+.article_header{
+text-align: center;
+}
+.article_title_big{
+    text-align: center;
+}
+.article_body p{
+  text-align: justify;
+
+}
+.article_body {
+  text-align: center;
+}
+.article_body h2{
+  margin-top: 1em;
+}
+.reference ul li{
+  text-decoration: none;
+  color: #1a1a1a;
+  font-style: italic;
+  text-align: left;
+  font-size: 10pt;
+}
+.reference h6{color: #1a1a1a}
+.contact_text{text-decoration: none}
+.contact_text li{
+  text-decoration: none;
+  font-size: 14pt;
+
+}

@@ -1,8 +1,260 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %} {{ title }}{% endblock %}
 
 {% block body %}
-Home page body
+    <!--Jumbo Tron-->
+    <div class="jumbotron ">
+
+        <div class="col-xl-10 col-xs-12 col-md-10 col-lg-10 col-xxs-12 mx-auto">
+        <h1 class="display-4 text-center minhanhcolor">Minh Anh Cần Thơ - Dạy từ tâm</h1>
+        <p class="lead">Chúng tôi với kinh nghiệm giảng dạy ngoại ngữ tại các trường đại học nổi tiếng tại Cần Thơ cộng với sự nhiệt tình và tình yêu đối với nghề chúng tôi cho ra lò những học viên xuất sắc và vững kiến thức ngoại ngữ, sẵn sàng đáp ứng mọi yêu cầu của nhà tuyển dụng cũng như các mục đích du học hay định cư nước ngoài.</p>
+        <p class="lead">Trung tâm ngoại ngữ Minh Anh đang đào tạo các lớp: chứng chỉ quốc gia A - B - C theo chuẩn châu Âu, các chứng chỉ quốc tế: TOEIC, TOEFL, IELTS và các lớp anh văn căn bản dành cho các bạn học viên...</p>
+        <hr class="my-4">
+
+        <a class="btn btn-outline-minhanhcolor" href="#" role="button">Tìm hiểu thêm</a>
+
+    </div>
+
+
+    </div>
+
+    <!--Teaching Section-->
+    <div class="container-md padding">
+    <div class="row-welcome text-center ">
+        <div class="col-lg-4 mx-auto">
+        <h2 class="minhanhcolor">Chương trình đào tạo</h2>
+        <hr>
+        <p>Chương trình đào tạo tại trung tâm anh văn Minh Anh Cần Thơ, chương trình luôn được đội ngũ giảng dạy cập nhật và nâng cấp liên tục để đáp ứng nhu cầu của xã hội.</p>
+        <hr>
+        </div>
+    </div>
+    </div>
+    <!--Tree collums section-->
+    <div class="container-md padding">
+    <div class="row text-center padding">
+        <div class="col-sm-4">
+        <i class="fas fa-bold"><img  src="images/graduated.png" alt=""></i>
+        <a class="course" href="#"><h3 class="minhanh_text">Khung CEFR quốc gia</h3></a>
+        <p>Anh văn chuẩn mới quốc gia: A1, A2, B1, B2, C1, C2. </p>
+        </div>
+        <div class="col-sm-4">
+        <i class="fas fa-bold"><img   src="images/school.png" alt=""></i>
+        <a class="course" href="#"><h3 class="minhanh_text">Khung châu Âu</h3></a>
+        <p>Toeic - Toefle - Ielts (KET - PET - FCE ...)</p>
+        </div>
+        <div class="col-sm-4">
+        <i class="fas fa-bold"><img  src="images/coworking.png" alt=""></i>
+        <a class="course" href="#"><h3 class="minhanh_text">Anh văn thương mại</h3></a>
+        <p>Kids, Conversation, Grammar, Pronunciation, etc..</p>
+        </div>
+    </div>
+    <hr>
+    </div>
+
+    <!--Two collums section-->
+    <div class="container-md padding">
+    <div class="row padding mx-auto">
+        <div class="col-lg-6 pb-3">
+        <h3>Lớp học tiêu chuẩn</h3>
+        <p>Lượng học viên mỗi lớp ít đảm bảo tất cả học viên đủ cơ hội phát biểu và thảo luận nhóm,
+            chương trình học kết hợp lý thuyết thực hànhgiải bài tập tại lớp. Thiết bị nghe nhìn hiện đại
+        theo tiêu chuẩn quốc gia.</p>
+        <p>Giáo trình giảng dạy sử dụng tại trung tâm anh ngữ Minh Anh Cần Thơ được biên soạn riêng và
+        phát hành nội bộ cho học viên trung tâm</p>
+        <p>Trong các tiết học giảng viên trung tâm luôn tạo điều kiện để học viên được tương tác và
+        phát biểu ý kiến, tránh nhàm chán. Đảm bảo mỗi buổi học đều mang giá trị.</p>
+        <br>
+        <a class="btn btn-outline-minhanhcolor" href="#" role="button">Tìm hiểu thêm</a>
+        </div>
+
+        <!--Slider contain-->
+        <div class="col-lg-6">
+        <img class="img-fluid img-thumbnail" src="images/class.jpg" alt="">
+        </div>
+    </div>
+    <hr>
+    </div>
+
+    <!--Bảng vàng thành tích-->
+    <div class="container-md p-5">
+        <div class="row text-center">
+            <div class="col-md-12 text-center">
+            <h3 class="minhanhcolor">Bảng vàng thành tích</h3>
+            <p class="col-md-4 mx-auto">Niềm tự hào của trung tâm là đào tạo được các thế
+                hệ học viên xuất sắc, đáp ứng nguồn nhân lực chất lượng cao cho xã hội.</p>
+            </div>
+            <div class="col-md-12 p-1">
+                <div class="button-placement d-none d-sm-none d-md-block">
+                    <a class="btn btn-sm btn-success" href="#carouselExample" role="button" data-slide="prev"> <i class="fas fa-chevron-circle-left"> <<<< </i> </a>
+                    <a class="btn btn-sm btn-success" href="#carouselExample" role="button" data-slide="next"> <i class="fas fa-chevron-circle-right"> >>>> </i> </a>
+                </div>
+                <div class="button-placement d-md-none d-lg-none d-xl-none">
+                    <a class="btn btn-sm btn-success" href="#carouselExampleMobile" role="button" data-slide="prev"> <i class="fas fa-chevron-circle-left"> <<<< </i> </a>
+                    <a class="btn btn-sm btn-success" href="#carouselExampleMobile" role="button" data-slide="next"> <i class="fas fa-chevron-circle-right"> >>>> </i> </a>
+                </div>
+
+            </div>
+
+
+            <div id="carouselExample" class="carousel slide d-none d-sm-none d-md-block" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-3">
+                            <i class="fas fa-bold text-center"><img class="rounded-circle w-25" src="images/student.jpg" alt=""></i>
+                            <h5>Trần Thị Cần Thơ</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                            </div>
+                            <div class="col-md-3">
+                            <i class="fas fa-bold text-center"><img class="rounded-circle w-25" src="images/student1.jpg" alt=""></i>
+                            <h5>Trần Cà Mau</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student2.jpg" alt=""></i>
+                            <h5>Nguyễn Thị Trà Vinh</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student3.jpg" alt=""></i>
+                            <h5>Ngô Đồng Tháp</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student3.jpg" alt=""></i>
+                            <h5>Nguyễn Văn An Giang</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <i class="fas fa-bold text-center"><img class="rounded-circle w-25" src="images/student2.jpg" alt=""></i>
+                            <h5>Lê Thị Long An</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student.jpg" alt=""></i>
+                            <h5>Giang Bạc Liêu</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student.jpg" alt=""></i>
+                            <h5>Lý Tiền Giang</h5>
+                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Bài viết -->
+    <div class="container-fluid padding p-4 minhanhbg">
+    <div class="container-md">
+        <div class="row col-md-12">
+        <div class="col-12 text-center">
+            <h2 class="minhanhcolor color-white ">Kinh nghiệm học Anh Văn</h2>
+        </div>
+
+        <div class="row col-md-12 col-s-12 pt-3 mx-auto">
+
+            <div class="col-s-12 col-xs-12 col-md-6 col-lg-6 d-inline mt-15">
+            <div class="w-100 h-100 border rounded shadow-sm bg-light">
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-left mtb-15">
+                <img class="w-100" src="images/class.jpg" alt="">
+                </div>
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-right mtb-15">
+                <div>
+                    <a href="#" class="minhanh_blue_link">Ngữ pháp: </a>
+                    <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                </div>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p>
+                    Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.
+                </p>
+                </div>
+
+            </div>
+            </div>
+
+
+            <div class="col-s-12 col-xs-12 col-md-6 col-lg-6 d-inline mt-15">
+            <div class="w-100 h-100 border rounded shadow-sm bg-light">
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-left mtb-15">
+                <img class="w-100" src="images/class.jpg" alt="">
+                </div>
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-right mtb-15">
+                <div>
+                    <a href="#" class="minhanh_blue_link">Nghe: </a>
+                    <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                </div>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p>
+                    Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.
+                </p>
+                </div>
+
+            </div>
+            </div>
+
+            <div class="col-s-12 col-xs-12 col-md-6 col-lg-6 d-inline mt-15">
+            <div class="w-100 h-100 border rounded shadow-sm bg-light">
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-left mtb-15">
+                <img class="w-100" src="images/class.jpg" alt="">
+                </div>
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-right mtb-15">
+                <div>
+                    <a href="#" class="minhanh_blue_link">Viết: </a>
+                    <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                </div>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p>
+                    Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.
+                </p>
+                </div>
+
+            </div>
+            </div>
+
+            <div class="col-s-12 col-xs-12 col-md-6 col-lg-6 d-inline mt-15">
+            <div class="w-100 h-100 border rounded shadow-sm bg-light">
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-left mtb-15">
+                <img class="w-100" src="images/class.jpg" alt="">
+                </div>
+
+                <div class="col-s-12 col-md-12 col-lg-12 col-xl-6 float-right mtb-15">
+                <div>
+                    <a href="#" class="minhanh_blue_link">Ngữ Âm: </a>
+                    <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                </div>
+                <div class="mb-1 text-muted">Nov 11</div>
+                <p>
+                    Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.
+                </p>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+        <div class="col-12 text-center pt-4" >
+            <a class="" href="#"><button type="button" class="btn btn-success">Xem thêm kinh nghiệm học Anh Văn</button></a>
+        </div>
+        </div>
+
+    </div>
+    </div>
+
 
 {% endblock %}

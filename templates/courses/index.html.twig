@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CoursesCotrollerController!{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Chương trình đào tạo</li>
+  </ol>
+</nav>
+
+<!--Teaching Section-->
+<div class="container-md padding">
+  <div class="row-welcome text-center ">
+    <div class="col-lg-4 mx-auto">
+      <h2 class="minhanhcolor">Chương trình đào tạo</h2>
+      <hr>
+      <p>Chương trình đào tạo tại trung tâm anh văn Minh Anh Cần Thơ, chương trình luôn được đội ngũ giảng dạy cập nhật và nâng cấp liên tục để đáp ứng nhu cầu của xã hội.</p>
+      <hr>
+    </div>
+  </div>
+</div>
+<!--Tree collums section-->
+<div class="container-md padding">
+  <div class="row text-center padding">
+    <div class="col-sm-4">
+      <i class="fas fa-bold"><img  src="images/graduated.png" alt=""></i>
+      <a class="course" href="#"><h3 class="minhanh_text">Khung CEFR quốc gia</h3></a>
+      <ul class="course_list">
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A1 </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A2 </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B1 </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B2 </a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <i class="fas fa-bold"><img   src="images/school.png" alt=""></i>
+      <a class="course" href="#"><h3 class="minhanh_text">Khung châu Âu</h3></a>
+      <ul class="course_list">
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn TOEIC </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn IELTS </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn TOEFLE </a></li>
+        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn SAT </a></li>
+      </ul>
+    </div>
+    <div class="col-sm-4">
+      <i class="fas fa-bold"><img  src="images/coworking.png" alt=""></i>
+      <a class="course" href="#"><h3 class="minhanh_text">Anh văn thương mại</h3></a>
+      <ul class="course_list">
+        <li><a href="#" class="minhanh_link_1">Anh văn thiếu nhi </a></li>
+        <li><a href="#" class="minhanh_link_1">Anh văn thương mại</a></li>
+        <li><a href="#" class="minhanh_link_1">Anh văn giao tiếp</a></li>
+        <li><a href="#" class="minhanh_link_1">Ngữ âm đàm thoại </a></li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  </div>
+{% endblock %}

@@ -2,16 +2,115 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
+
+    
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+            <a class="navbar-brand" href="{{ path('homepage') }}"><img src="images/logo.jpg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Giới thiệu<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lịch khai giảng</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="{{ path('courses') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Chương trình đào tạo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Chứng chỉ quốc gia</a>
+                    <a class="dropdown-item" href="#">Chứng chỉ quốc tế</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Anh văn giao tiếp</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('skills') }}"  >Kinh nghiệm học Anh Văn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('videos') }}"  >Anh văn online</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"  >Thông báo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('contact') }}" >Liên hệ</a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-minhanhcolor my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
 
-       
-        {% block footer%} 
-        
-        {% endblock %}
+      
+        <!--footer-->
+        <div class="container-fluid bg-light pb-3">
+        <div class="container-md ">
+            <div class="row">
+            <div class="col-lg-4 col-md-4 col-s-12 mt-4">
+                    <ul class="footer_list">
+                    <li class="minhanhcolor brandname">Trung tâm anh ngữ Minh Anh</li>
+                    <li>Địa chỉ: 35 Nguyễn Hiền, Ninh Kiều, Cần Thơ</li>
+                    <li>Điện thoại: 065 123 1234</li>
+                    <li>Hotline: 0906 650 262 - Thầy Trạng</li>
+                    <li>
+                        <div class="social_icon">
+                            <img src="images/icon_youtube.png" alt="">
+                            <img src="images/icon_facebook.png" alt="">
+                        </div>
+                    </li>
+                    </ul>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-s-12 mt-4">
+                <div class="minhanhcolor brandname">
+                    Tư vấn miễn phí:
+                </div>
+                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Tên của bạn">
+                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Số điện thoại">
+                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Email">
+                <input class="btn btn-outline-minhanhcolor mt-1" type="button" name="submit" value="Gửi">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-s-12 mt-4">
+                <div class="minhanhcolor brandname">
+                Thông báo:
+                </div>
+                <div class="">
+                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
+                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
+                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
+                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Bootstrap JQuery Plugin -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>    
     </body>
 </html>

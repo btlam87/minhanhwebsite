@@ -8,7 +8,6 @@ fos_ck_editor:
     configs:
         my_config:
             toolbar: full
-
-    filebrowsers:
-            - ImageBrowseUrl
-            - ImageUploadUrl
+            filebrowserBrowseRoute: 'vich_uploader'
+            filebrowserBrowseRouteParameters: { slug: "my-slug" }
+            filebrowserBrowseRouteType: 0   
