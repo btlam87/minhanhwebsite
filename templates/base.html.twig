@@ -83,15 +83,18 @@
                     </ul>
 
             </div>
-
+            <div>
+                
+            </div>
             <div class="col-lg-4 col-md-4 col-s-12 mt-4">
                 <div class="minhanhcolor brandname">
                     Tư vấn miễn phí:
                 </div>
-                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Tên của bạn">
+                {{ render(controller('App\\Controller\\MessageCotrollerController::Message')) }}
+                {# <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Tên của bạn">
                 <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Số điện thoại">
                 <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Email">
-                <input class="btn btn-outline-minhanhcolor mt-1" type="button" name="submit" value="Gửi">
+                <input class="btn btn-outline-minhanhcolor mt-1" type="button" name="submit" value="Gửi"> #}
             </div>
 
             <div class="col-lg-4 col-md-4 col-s-12 mt-4">

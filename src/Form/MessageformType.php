@@ -20,7 +20,7 @@ class MessageformType extends AbstractType
     {
         $builder
             ->add('fullname', TextType::class,['label' => 'Tên của bạn'])
-            ->add('phone', TextType::class, ['label' => 'SỐ điện thoại'])
+            ->add('phone', TextType::class, ['label' => 'Số điện thoại'])
             ->add('email', EmailType::class, ['label' => 'Email (khi không gọi được)'])
             ->add('mess', TextareaType::class, ['label' => 'Nội dung liên hệ'])
             ->add('status',  HiddenType::class,['data'=>'1'])

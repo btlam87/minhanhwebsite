@@ -24,17 +24,15 @@ class MessageCotrollerController extends AbstractController
         $form->handleRequest($request);
         if($form->get('save')->isClicked() && $form->isValid())
         {
-            //$mess = $form->getData(); 
-            
-
+            dump($form->getData());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($mess);
             $entityManager->flush();
-
+            // echo("Toi day");
             return $this->redirectToRoute('homepage');
             
         }
-        return $this->render('message/index.html.twig',  ['our_form' => $form->createView()]);
+        return $this->render('message/index.html.twig',  ['mess_form' => $form->createView()]);
 
     }
 }
