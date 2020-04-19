@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+
+
 class MessageformType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -25,10 +27,9 @@ class MessageformType extends AbstractType
             ->add('mess', TextareaType::class, ['label' => 'Nội dung liên hệ'])
             ->add('status',  HiddenType::class,['data'=>'1'])
             ->add('save', SubmitType::class, ['label'=>'Gửi'])
+            
         ;
     }
-      
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

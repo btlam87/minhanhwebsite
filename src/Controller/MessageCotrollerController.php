@@ -15,23 +15,25 @@ class MessageCotrollerController extends AbstractController
      */
     public function Message(Request $request)
     {
-        // return $this->render('message_cotroller/index.html.twig', [
-        //     'controller_name' => 'MessageCotrollerController',
-        // ]);
-        $mess = new Message();
-        $form = $this->createForm(MessageformType::class,$mess);
+          
+        $form = $this->createForm(MessageformType::class);
 
         $form->handleRequest($request);
-        if($form->get('save')->isClicked() && $form->isValid())
+        
+        if($form->isSubmitted() && $form->isValid())
         {
-            dump($form->getData());
+            /** @var Message $mess */
+            $mess = $form->getData();
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($mess);
             $entityManager->flush();
-            // echo("Toi day");
-            return $this->redirectToRoute('homepage');
+            $this->addFlash('success', 'Yêu cầu đã được gửi đi, trung tâm sẽ liên hệ bạn sớm nhất!');
+            
+            return $this->redirectToRoute('contactpage');
             
         }
+        
         return $this->render('message/index.html.twig',  ['mess_form' => $form->createView()]);
 
     }

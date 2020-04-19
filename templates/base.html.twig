@@ -50,7 +50,7 @@
                     <a class="nav-link" href="#"  >Thông báo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('contact') }}" >Liên hệ</a>
+                    <a class="nav-link" href="{{ path('contactpage') }}" >Liên hệ</a>
                 </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -88,13 +88,15 @@
             </div>
             <div class="col-lg-4 col-md-4 col-s-12 mt-4">
                 <div class="minhanhcolor brandname">
-                    Tư vấn miễn phí:
+                    Đường đến trung tâm Minh Anh ? (How to get Minh Anh ?)
                 </div>
-                {{ render(controller('App\\Controller\\MessageCotrollerController::Message')) }}
-                {# <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Tên của bạn">
-                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Số điện thoại">
-                <input class="form-control form-control-sm mt-1 col-10" type="text" placeholder="Email">
-                <input class="btn btn-outline-minhanhcolor mt-1" type="button" name="submit" value="Gửi"> #}
+                <div class="map_embed">
+                    <img width="100%" src="images/map.jpg" alt="">
+                </div>
+
+                
+                {# {{ render(controller('App\\Controller\\MessageCotrollerController::Message')) }} #}
+              
             </div>
 
             <div class="col-lg-4 col-md-4 col-s-12 mt-4">

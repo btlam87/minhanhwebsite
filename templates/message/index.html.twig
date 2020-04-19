@@ -1,10 +1,19 @@
-{# {% form_theme mess_form 'bootstrap_4_layout.html.twig' %} #}
-   {{ form_start(mess_form) }}
-   
-   {{ form_widget(mess_form.fullname, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Tên của bạn", 'type':'text'}}) }}
-   {{ form_widget(mess_form.phone, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Số điện thoại",'type':'text'}}) }}
-   {{ form_widget(mess_form.email, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Email (khi không gọi được)", 'type':'text'}}) }}
-   {{ form_widget(mess_form.mess, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Nội dung liên hệ",'type':'text'}}) }}
-   {{ form_widget(mess_form.save, {'attr': {'class': 'btn btn-outline-minhanhcolor mt-1','type':'submit'}}) }}
-   {# {{form_widget(mess_form)}} #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container col-md-6 col-s-12 pt-3 mx-auto">
+   <h1>Vui lòng nhập thông</h1>
+   <p>Thông tin bắt buộc là: tên và số điện thoại</p>
+   {% form_theme mess_form 'bootstrap_4_layout.html.twig' %} 
+      {{ form_start(mess_form) }}
+      
+      {# {{ form_widget(mess_form.fullname, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Tên của bạn", 'type':'text'}}) }}
+      {{ form_widget(mess_form.phone, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Số điện thoại",'type':'text'}}) }}
+      {{ form_widget(mess_form.email, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Email (khi không gọi được)", 'type':'text'}}) }}
+      {{ form_widget(mess_form.mess, {'attr': {'class': 'form-control form-control-sm mt-1 col-10', 'placeholder':"Nội dung liên hệ",'type':'text'}}) }}
+      {{ form_widget(mess_form.save, {'attr': {'class': 'btn btn-outline-minhanhcolor mt-1','type':'submit'}}) }}  #}
+    {{form_widget(mess_form)}}
+      
    {{ form_end(mess_form) }}
+   </div>
+{% endblock %}
