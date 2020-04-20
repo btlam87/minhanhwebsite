@@ -19,10 +19,22 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    // /**
-    //  * @return Skill[] Returns an array of Skill objects
-    //  */
-    /*
+
+
+    public function showskill()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT name
+            FROM App\Entity\Skill'
+        )->setParameter('skills', $skills);
+        return $query;
+    }
+
+    /**
+    * @return Skill[] Returns an array of Skill objects
+    */
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('s')
@@ -34,7 +46,7 @@ class SkillRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Skill
