@@ -114,11 +114,13 @@ easy_admin:
             form:
                 fields: 
                     - {property: 'name', label: "Tên nhóm khóa học"}
+                    - {property: 'thumbFile', type: 'vich_image', label: "Icon đại diện nhóm", help: "Hình theo tỉ lệ: 150 x 150 px để hiển thị tốt nhất"}
                     
             list:
                 fields:
                     - id
                     - {property: 'name', label: "Tên nhóm khóa học"}
+                    - {property: 'thumb', label: "Hình đại diện nhóm", type: 'image', base_path: '%uploads_path%'}
                     
         Videos:
             class: App\Entity\Videos

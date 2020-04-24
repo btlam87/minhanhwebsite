@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoursesCotrollerController!{% endblock %}
+{% block title %}Chương trình đào tạo trung tâm ngoại ngữ Minh Anh{% endblock %}
 
 {% block body %}
+<!--Breadcum-->
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -24,27 +25,24 @@
 <!--Tree collums section-->
 <div class="container-md padding">
   <div class="row text-center padding">
-    <div class="col-sm-4">
-      <i class="fas fa-bold"><img  src="images/graduated.png" alt=""></i>
-      <a class="course" href="#"><h3 class="minhanh_text">Khung CEFR quốc gia</h3></a>
-      <ul class="course_list">
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A1 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A2 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B1 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B2 </a></li>
-      </ul>
-    </div>
-    <div class="col-sm-4">
-      <i class="fas fa-bold"><img   src="images/school.png" alt=""></i>
-      <a class="course" href="#"><h3 class="minhanh_text">Khung châu Âu</h3></a>
-      <ul class="course_list">
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn TOEIC </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn IELTS </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn TOEFLE </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn SAT </a></li>
-      </ul>
-    </div>
-    <div class="col-sm-4">
+    {% for coursesgroup in coursesgroup_list %}    
+        <div class="col-sm-4">
+            <i class="fas fa-bold"><img  src="uploads/images/{{ coursesgroup.getThumb() }}" alt=""></i>
+            <a class="course" href="#"><h3 class="minhanh_text"> {{ coursesgroup.getName() }}</h3></a>
+
+            <ul class="course_list">
+                {% for course in course_list %}
+                    {% if(course.getCoursegroup().id() == coursesgroup.getId() ) %}
+                        <li><a href="#" class="minhanh_link_1">{{ course.getName() }}</a></li>
+                
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    {% endfor %}
+
+    {# <div class="col-sm-4">
       <i class="fas fa-bold"><img  src="images/coworking.png" alt=""></i>
       <a class="course" href="#"><h3 class="minhanh_text">Anh văn thương mại</h3></a>
       <ul class="course_list">
@@ -53,7 +51,8 @@
         <li><a href="#" class="minhanh_link_1">Anh văn giao tiếp</a></li>
         <li><a href="#" class="minhanh_link_1">Ngữ âm đàm thoại </a></li>
       </ul>
-    </div>
+    </div> #}
+
   </div>
   <hr>
   </div>
