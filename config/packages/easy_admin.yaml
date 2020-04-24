@@ -52,7 +52,7 @@ easy_admin:
             edit:
                 title: "Sửa bài"
             list:
-                fields: [{property: 'name', label: "Tên bài viết"}, {property: 'thumb', type: 'image',base_path: '%uploads_path%', label: 'Hình đại diện'},{property: 'type', label: 'Loại'}, {property: 'createdate', label: "Ngày tạo"}, {property: 'updatedate', label: 'Chỉnh sửa'}]
+                fields: [{property: 'name', label: "Tên bài viết"}, {property: 'thumb', type: 'image',base_path: '%uploads_path%', label: 'Hình đại diện'},{property: 'type', label: 'Loại'},{property: 'skill', label: 'Kỹ năng'}, {property: 'createdate', label: "Ngày tạo"}, {property: 'updatedate', label: 'Chỉnh sửa'}]
             show:
                 fields:
                     - {property: 'name', label: "Tên bài viết"}

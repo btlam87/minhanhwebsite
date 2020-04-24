@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SkillsController!{% endblock %}
+{% block title %}Kinh nghiệm học anh văn!{% endblock %}
 
 {% block body %}
 <nav aria-label="breadcrumb">
@@ -18,206 +18,43 @@
 
       <div class="row mt-3">
         <div class="form-group col-md-4">
-          {{ render(controller('App\\Controller\\SkillsController::showskill')) }}
-          {# <select id="inputState" class="form-control">
-            <option selected>Chọn chủ đề </option>
-            <option>Ngữ Âm</option>
+          {# {{ render(controller('App\\Controller\\SkillsController::showsoptions')) }} #}
+           <select id="inputState" class="form-control">
+            <option value="all" selected>Chọn chủ đề </option>
+            {% for skill in skill_list  %}
+              <option value="{{ skill.getId() }}">{{ skill.getName() }}</option>
+            {% endfor %}
+            {# <option>Ngữ Âm</option>
             <option>Ngữ Pháp</option>
-            <option>...</option>
+            <option>...</option> #}
 
-          </select> #}
+          </select> 
         </div>
       </div>
 
       <div class="row">
+
+      {% for article in article_list %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/class.jpg" alt="">
-
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/images/{{ article.getThumb() }}" alt="">
             <div class="card-body">
               <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ pháp (Grammar): &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                <a class="minhanh_blue_link_big">{{ article.getSkill() }}: &nbsp</a>
+                <a href="../Kinh-nghiem-hoc-anh-van/{{ article.getSkill().id() }}/{{ article.getId() }}" class="minhanh_black_link_big">{{ article.Name() }}</a>
               </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
+              <p class="card-text"> {{ article.getDescription[0:75] }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
+                  <a href="../Kinh-nghiem-hoc-anh-van/{{ article.getSkill().id() }}/{{ article.getId() }}" type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</a>
+                  <a href="#" type="button" class="btn btn-sm btn-outline-info">Save</a>
                 </div>
-                <small class="text-muted">20/12/2019</small>
+                <small class="text-muted">{{ article.getCreatedate()|date('d-m-Y') }}</small>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article1.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Giao tiếp (Conversation): &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article2.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ âm (Pronunciation): &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article3.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Đọc (Reading): &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article2.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Viết (Writing): &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article1.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ pháp: &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article3.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ pháp: &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/article1.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ pháp: &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="images/class.jpg" alt="">
-
-            <div class="card-body">
-              <div class="row">
-                <a href="#" class="minhanh_blue_link_big">Ngữ pháp: &nbsp</a>
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</button>
-                  <button type="button" class="btn btn-sm btn-outline-info">Save</button>
-                </div>
-                <small class="text-muted">20/12/2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
+      {% endfor %}
       </div>
       <div class="row mt-3 ml-1">
 
@@ -240,8 +77,24 @@
         </nav>
 
       </div>
+
     </div>
   </div>
   </div>
 </div>
+{% endblock %}
+{% block javascripts %}
+<script language = "javascript"> 
+  $("#inputState").change(function(){
+    var select_value = $(this).children("option:selected").val();
+    var text =  $(this).children("option:selected").text();
+    var url= window.location.origin; 
+    //alert(url+"/Kinh-nghiem-hoc-anh-van/"+select_value);
+     location.href = url+"/Kinh-nghiem-hoc-anh-van/"+select_value;
+  });
+  
+</script> 
+ 
+
+
 {% endblock %}

@@ -130,10 +130,14 @@ text-align: center;
 
 }
 .article_body {
-  text-align: center;
+  text-align: justify;
 }
-.article_body h2{
+.article_body h2,h3,h4,h5,h6,div{
   margin-top: 1em;
+  text-align: justify;
+}
+.article_content p,h2,h3,h4,h5,h6,table{
+  text-align: justify;
 }
 .reference ul li{
   text-decoration: none;

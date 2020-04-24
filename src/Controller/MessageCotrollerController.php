@@ -17,21 +17,18 @@ class MessageCotrollerController extends AbstractController
     {
           
         $form = $this->createForm(MessageformType::class);
-
         $form->handleRequest($request);
-        
         if($form->isSubmitted() && $form->isValid())
         {
             /** @var Message $mess */
             $mess = $form->getData();
-            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($mess);
             $entityManager->flush();
             $this->addFlash('success', 'Yêu cầu đã được gửi đi, trung tâm sẽ liên hệ bạn sớm nhất!');
-            
+
             return $this->redirectToRoute('contactpage');
-            
+           
         }
         
         return $this->render('message/index.html.twig',  ['mess_form' => $form->createView()]);

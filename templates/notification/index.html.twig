@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Thông báo từ trung tâm ngoại ngữ Minh Anh{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage')}}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Thông báo</li>
+  </ol>
+</nav>
+
+<!--Teaching Section-->
+<div class="container-md padding">
+  <div class="row-welcome text-center ">
+    <div class="album py-5 ">
+    <div class="container border">
+
+        <div class="row mt-3">
+
+        {% for notice in notice_list %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/images/{{ notice.getThumb() }}" alt="">
+            <div class="card-body">
+              <div class="row">
+                  <a href="../Thong-bao/{{ notice.getId() }}" class="minhanh_black_link_big">{{ notice.Name() }}</a>
+              </div>
+              <p class="card-text"> {{ notice.getDescription[0:75] }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="../Thong-bao/{{ notice.getId() }}" type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</a>
+                  
+                </div>
+                <small class="text-muted">{{ notice.getCreatedate|date('d-m-Y') }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+      <div class="row mt-3 ml-1">
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link btn-outline-minhanhcolor" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link btn-outline-minhanhcolor" href="#">1</a></li>
+            <li class="page-item"><a class="page-link btn-outline-minhanhcolor" href="#">2</a></li>
+            <li class="page-item"><a class="page-link btn-outline-minhanhcolor" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link btn-outline-minhanhcolor" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

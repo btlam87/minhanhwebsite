@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Giới thiệu trung tâm ngoại ngữ Minh Anh{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage')}}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Giới thiệu trung tâm ngoại ngữ Minh Anh</li>
+  </ol>
+</nav>
+
+<div class="container-md">
+  <div class="article_header text-center">
+    <h1 class="article_title_big">{{ intro.getName() }}</h1>
+  </div>
+  <div class="article_info text-center">
+    <p class= "text-center">
+      <label class="article_info">Nguồn: &nbsp</label>
+      <label class="article_info">{{ intro.getAuthor() }}</label>
+      <label class="article_info">&nbsp/&nbsp</label>
+      <label class="article_info">{{ intro.getCreatedate()|date('d-m-Y') }}</label></p>
+
+  </div>
+  <div class="article_body ">
+      <p>
+      {{ intro.getDescription() }}
+      </p>
+      <br/>
+      <img class="img-fluid" src="uploads/images/{{ intro.getThumb() }}" alt="">
+      <br/>
+      <br/>
+      <div id="content">
+        {% autoescape 'html' %}
+            {{ intro.getContent()|raw }} 
+           
+        {% endautoescape %}
+      </div>
+      <p><label class="article_info">Nguồn: &nbsp {{ intro.getAuthor() }}</label></p> 
+      <hr>   
+
+  </div>
+{% endblock %}

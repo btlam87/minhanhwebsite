@@ -20,6 +20,7 @@ class SearchController extends AbstractController
             'controller_name' => 'SearchController',
         ]);
     }
+    
     public function searchBar()
     {
 
