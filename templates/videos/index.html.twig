@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VideosController!{% endblock %}
+{% block title %}Kênh youtube của trung tâm ngoại ngữ Minh Anh {% endblock %}
 
 {% block body %}
 <nav aria-label="breadcrumb">
@@ -27,17 +27,21 @@
   <div class="row-welcome text-center ">
     <div class="album py-5 ">
     <div class="container border">
-      <div class="row">
+      <div class="row mt-3">
+      {% for video in videos_list %}
+        {% if( video.getStatus() ) %}
 
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% autoescape 'html' %}
+               {{ video.getLink()|raw }} 
+            {% endautoescape %}
             <div class="card-body">
               <div class="row">
 
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
+                <a href="#" class="minhanh_black_link_big">{{ video.getName() }}</a>
               </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
+              <p class="card-text"> {{ video.getDescription()[0:75] }} </p>
               <div class="d-flex justify-content-between align-items-center">
 
               </div>
@@ -45,134 +49,10 @@
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
+        
 
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <iframe class="bd-placeholder-img card-img-top" width="100%" height="225" src="https://www.youtube.com/embed/SwETFwY0zlI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="card-body">
-              <div class="row">
-
-                <a href="#" class="minhanh_black_link_big">Cách phát âm kiểu Mỹ</a>
-              </div>
-              <p class="card-text">  Giọng Anh Anh luôn khiến ta có cảm giác lịch sự, trang trọng hơn trong giao tiếp.</p>
-              <div class="d-flex justify-content-between align-items-center">
-
-              </div>
-            </div>
-          </div>
-        </div>
-
+        {% endif %}
+      {% endfor %}
       </div>
       <div class="row mt-3 ml-1">
 
@@ -199,4 +79,14 @@
   </div>
   </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+<script language = "javascript"> 
+  $("iframe").width("100%").height("auto");
+
+</script> 
+ 
+
+
 {% endblock %}

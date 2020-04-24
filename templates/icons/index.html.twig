@@ -1,0 +1,6 @@
+
+<div class="social_icon">
+    {% for icon in icons_list %}
+        <a href="{{ icon.getLink()}}"><img  src="uploads/images/{{ icon.getThumb() }}"></a>
+    {% endfor %}
+</div>
