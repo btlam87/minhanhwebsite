@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ coursegroup.getName() }}{% endblock %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ path('homepage')}}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('coursesgroup')}}">Chương trình đào tạo</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ coursegroup.getName() }}</li>
+  </ol>
+</nav>
+
+<!--Teaching Section-->
+<div class="container-md padding">
+  <div class="row-welcome text-center ">
+    <div class="album py-5 ">
+    <div class="container border">
+
+      <div class="row">
+
+      {% for course in course_list %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/images/{{ course.getThumb() }}" alt="">
+            <div class="card-body">
+              <div class="row">
+                <a href="/dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" class="minhanh_black_link_big">{{ course.Name() }}</a>
+              </div>
+              <p class="card-text"> {{ course.getDescription[0:75] }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="/dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</a>
+                  <a href="#" type="button" class="btn btn-sm btn-outline-info">Save</a>
+                </div>
+                <small class="text-muted">{{ course.getTrainingtime()}} &nbsp Tuần</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+      
+
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -10,7 +10,7 @@ use App\Entity\Course;
 class CoursesgroupController extends AbstractController
 {
     /**
-     * @Route("/coursesgroup", name="coursesgroup")
+     * @Route("/Dao-tao", name="coursesgroup")
      */
     public function coursegroup()
     {

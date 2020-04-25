@@ -6,7 +6,7 @@
 <!--Breadcum-->
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Chương trình đào tạo</li>
   </ol>
 </nav>
@@ -24,17 +24,16 @@
 </div>
 <!--Tree collums section-->
 <div class="container-md padding">
-  <div class="row text-center padding">
+  <div class="row  text-center padding">
     {% for coursesgroup in coursesgroup_list %}    
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-center">
             <i class="fas fa-bold"><img  src="uploads/images/{{ coursesgroup.getThumb() }}" alt=""></i>
-            <a class="course" href="#"><h3 class="minhanh_text"> {{ coursesgroup.getName() }}</h3></a>
+            <a class="course" href="/Dao-tao/{{coursesgroup.getId()}}"><h3 class="minhanh_text text-center"> {{ coursesgroup.getName() }}</h3></a>
 
-            <ul class="course_list">
+            <ul class="course_list  text-center">
                 {% for course in course_list %}
                     {% if(course.getCoursegroup().id() == coursesgroup.getId() ) %}
-                        <li><a href="#" class="minhanh_link_1">{{ course.getName() }}</a></li>
-                
+                        <li><a href="/Dao-tao/{{coursesgroup.getId()}}/{{ course.getId() }}" class="minhanh_link_1">{{ course.getName() }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
