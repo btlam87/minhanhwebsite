@@ -25,12 +25,12 @@
             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="/images/{{ course.getThumb() }}" alt="">
             <div class="card-body">
               <div class="row">
-                <a href="/dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" class="minhanh_black_link_big">{{ course.Name() }}</a>
+                <a href="/Dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" class="minhanh_black_link_big">{{ course.Name() }}</a>
               </div>
               <p class="card-text"> {{ course.getDescription[0:75] }}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <a href="/dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</a>
+                  <a href="/Dao-tao/{{ course.getCoursegroup().id() }}/{{ course.getId() }}" type="button" class="btn btn-sm btn-outline-minhanhcolor minhanhcolor">Đọc thêm</a>
                   <a href="#" type="button" class="btn btn-sm btn-outline-info">Save</a>
                 </div>
                 <small class="text-muted">{{ course.getTrainingtime()}} &nbsp Tuần</small>

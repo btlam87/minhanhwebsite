@@ -20,6 +20,11 @@
   text-decoration: none;
   color: inherit;
 }
+.course_info{
+  font-size: normal;
+  color: red;
+  
+}
 .minhanhbg{
   background-color:  #045c32;
 }
@@ -77,7 +82,7 @@
 
 .social_icon img{
   height: 40px;
-  weight:40px;
+  width: 40px;
 }
 .small_link{
   text-decoration: none;
