@@ -20,9 +20,10 @@ class Slide
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Thumb;
+
     /**
      * @Vich\UploadableField(mapping = "sliderthumb", fileNameProperty="thumb")
      */

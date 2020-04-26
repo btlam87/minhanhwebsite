@@ -34,7 +34,7 @@ class Excillencestudent
     private $thumbFile;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\course")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Course")
      * @ORM\JoinColumn(nullable=false)
      */
     private $course;
