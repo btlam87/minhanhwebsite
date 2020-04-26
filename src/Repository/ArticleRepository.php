@@ -24,13 +24,13 @@ class ArticleRepository extends ServiceEntityRepository
      /**
       * @return Article[] Returns an array of Article objects
       */
-    public function findByExampleField($value)
+    public function findByExampleField($value,$num)
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.type = :val')
             ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('a.createdate', 'DESC')
+            ->setMaxResults($num)
             ->getQuery()
             ->getResult()
         ;

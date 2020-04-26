@@ -1,0 +1,6 @@
+<div class="">
+    
+    {% for notice in notice_title_list %}
+        <p class="mb-1"><a class="small_link" href="/Thong-bao/{{ notice.getId() }}">{{ notice.getName() }} &nbsp</a><label class="date">{{ notice.getCreatedate()|date('d-m-Y') }}</label>
+    {% endfor %}
+ </div>

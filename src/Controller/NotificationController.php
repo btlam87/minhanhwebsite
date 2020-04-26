@@ -12,9 +12,16 @@ class NotificationController extends AbstractController
      */
     public function allnoticesshow()
     {
-        $notices = $this->getDoctrine()->getRepository(Article::class)->findByExampleField(3);
+        $notices = $this->getDoctrine()->getRepository(Article::class)->findByExampleField(3,100000);
         return $this->render('notification/index.html.twig', [
             'notice_list' => $notices,
+        ]);
+    }
+    public function allnoticetitle()
+    {
+        $notices = $this->getDoctrine()->getRepository(Article::class)->findByExampleField(3,5);
+        return $this->render('notification/notice.html.twig', [
+            'notice_title_list' => $notices,
         ]);
     }
 }

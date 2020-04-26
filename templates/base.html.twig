@@ -107,12 +107,7 @@
                 <div class="minhanhcolor brandname">
                 Thông báo:
                 </div>
-                <div class="">
-                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
-                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
-                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
-                <p class="mb-1"><a class="small_link" href="">Thông báo khai giảng lớp B2 &nbsp</a><label class="date">20/10/2019</label></p>
-                </div>
+                {{ render(controller('App\\Controller\\NotificationController::allnoticetitle')) }}
             </div>
             </div>
         </div>
