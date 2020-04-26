@@ -16,6 +16,7 @@ easy_admin:
                - {entity: 'Videos', label: "Quản lý các videos", icon: 'th-list'}
                - {entity: 'Message', label: "Yêu cầu tư vấn", icon: 'th-list'}
                - {entity: 'Qa', label: "Hỏi đáp", icon: 'th-list'}
+               - {entity: 'Slide', label: "Slider trang chủ", icon: 'th-list'}
           - label: "Hạn chế thao tác"
             children:
                - {entity: 'Articletype', label: "Quản lý loại bài viết", icon: "th-list"} 
@@ -121,6 +122,23 @@ easy_admin:
                     - id
                     - {property: 'name', label: "Tên nhóm khóa học"}
                     - {property: 'thumb', label: "Hình đại diện nhóm", type: 'image', base_path: '%uploads_path%'}
+
+        Slide:
+            class: App\Entity\Slide
+            label: "Slider"
+            form:
+                fields:
+                    - {property: 'thumbFile', type: 'vich_image', label: "Hình slide", help: "Hình theo tỉ lệ: 1200 x 450 px để hiển thị tốt nhất"} 
+                    - {property: 'link', label: "Silder link đến đâu"}
+                    - {property: 'status', label: 'Ẩn hiện', help: "Check là hiện, bỏ check là ẩn"}
+  
+            list:
+                fields:
+                    - id
+                    - {property: 'thumb', label: "Hình slide", type: 'image', base_path: '%uploads_path%'}
+                    - {property: 'link', label: "Link"}
+                    - {property: 'status', label: 'Ẩn hiện'}
+                    - {property: 'createdate', label: 'Ngày tạo'}
                     
         Videos:
             class: App\Entity\Videos
@@ -138,7 +156,6 @@ easy_admin:
                     - {property: 'name', label: "Tên video"}
                     - {property: 'Link', label: "Link video"}
                     - {property: "status", label: "Hiện - Ẩn"}
-
 
         Contacts: 
             class: App\Entity\Contacts
