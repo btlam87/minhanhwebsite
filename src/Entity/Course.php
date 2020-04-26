@@ -233,4 +233,8 @@ class Course
 
         return $this;
     }
+    public function __Tostring()
+    {
+        return  $this->name;
+    }
 }

@@ -17,6 +17,7 @@ easy_admin:
                - {entity: 'Message', label: "Yêu cầu tư vấn", icon: 'th-list'}
                - {entity: 'Qa', label: "Hỏi đáp", icon: 'th-list'}
                - {entity: 'Slide', label: "Slider trang chủ", icon: 'th-list'}
+               - {entity: 'Excillencestudent', label: "Bảng vàng thành tích", icon: 'th-list'}
           - label: "Hạn chế thao tác"
             children:
                - {entity: 'Articletype', label: "Quản lý loại bài viết", icon: "th-list"} 
@@ -107,7 +108,24 @@ easy_admin:
                     - {property: 'thumb', label: 'Hình đại diện', type: 'image', base_path: '%uploads_path%'}
                     - {property: 'fee', label: 'Học phí' }
                     - {property: 'modifieddate', label: 'Ngày cập nhật'}
-
+                    
+        Excillencestudent:
+            class: App\Entity\Excillencestudent
+            label: "Sinh viên giỏi"
+            form: 
+                fields:
+                    - {property: 'name', label: 'Tên Sinh Viên'}
+                    - {property: 'thumbFile', label: 'Hình đại diện', type: 'vich_image', help: "Hình theo tỉ lệ 150 x 150 px hiển thị tốt nhất"}
+                    - {property: 'course', label: 'Khóa học'}
+                    - {property: 'point', label: 'Điểm số'}
+            edit:
+                label: "Chỉnh sửa" 
+            list:
+                fields:
+                    - {property: 'name', label: 'Tên Sinh Viên'}
+                    - {property: 'thumb', label: 'Hình đại diện', type: 'image', base_path: '%uploads_path%'}
+                    - {property: 'course', label: 'Khóa học'}
+                    - {property: 'point', label: 'Điểm số'}
 
         Coursegroup:
             class: App\Entity\Coursegroup
