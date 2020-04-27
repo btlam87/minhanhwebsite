@@ -42,7 +42,7 @@
         <p class="lead">Trung tâm ngoại ngữ Minh Anh đang đào tạo các lớp: chứng chỉ quốc gia A - B - C theo chuẩn châu Âu, các chứng chỉ quốc tế: TOEIC, TOEFL, IELTS và các lớp anh văn căn bản dành cho các bạn học viên...</p>
         <hr class="my-4">
 
-        <a class="btn btn-outline-minhanhcolor" href="#" role="button">Tìm hiểu thêm</a>
+        <a class="btn btn-outline-minhanhcolor" href="{{ path('intro') }}" role="button">Tìm hiểu thêm</a>
 
     </div>
 
@@ -86,21 +86,15 @@
     <div class="container-md padding">
     <div class="row padding mx-auto">
         <div class="col-lg-6 pb-3">
-        <h3>Lớp học tiêu chuẩn</h3>
-        <p>Lượng học viên mỗi lớp ít đảm bảo tất cả học viên đủ cơ hội phát biểu và thảo luận nhóm,
-            chương trình học kết hợp lý thuyết thực hànhgiải bài tập tại lớp. Thiết bị nghe nhìn hiện đại
-        theo tiêu chuẩn quốc gia.</p>
-        <p>Giáo trình giảng dạy sử dụng tại trung tâm anh ngữ Minh Anh Cần Thơ được biên soạn riêng và
-        phát hành nội bộ cho học viên trung tâm</p>
-        <p>Trong các tiết học giảng viên trung tâm luôn tạo điều kiện để học viên được tương tác và
-        phát biểu ý kiến, tránh nhàm chán. Đảm bảo mỗi buổi học đều mang giá trị.</p>
+        <h3>{{ facility_ar.getName() }}</h3>
+        <p>{{ facility_ar.getDescription() }}</p>
         <br>
-        <a class="btn btn-outline-minhanhcolor" href="#" role="button">Tìm hiểu thêm</a>
+        <a class="btn btn-outline-minhanhcolor" href="{{ path('facility') }}" role="button">Tìm hiểu thêm</a>
         </div>
 
         <!--Slider contain-->
         <div class="col-lg-6">
-        <img class="img-fluid img-thumbnail" src="images/class.jpg" alt="">
+        <img class="img-fluid img-thumbnail" src="uploads/images/{{ facility_ar.getThumb() }}" alt="">
         </div>
     </div>
     <hr>
@@ -129,34 +123,63 @@
 
             <div id="carouselExample" class="carousel slide d-none d-sm-none d-md-block" data-ride="carousel">
                 <div class="carousel-inner">
-
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-3">
-                            <i class="fas fa-bold text-center"><img class="rounded-circle w-25" src="images/student.jpg" alt=""></i>
-                            <h5>Trần Thị Cần Thơ</h5>
-                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
-                            </div>
-                            <div class="col-md-3">
-                            <i class="fas fa-bold text-center"><img class="rounded-circle w-25" src="images/student1.jpg" alt=""></i>
-                            <h5>Trần Cà Mau</h5>
-                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
-                            </div>
-                            <div class="col-md-3 text-center">
-                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student2.jpg" alt=""></i>
-                            <h5>Nguyễn Thị Trà Vinh</h5>
-                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
-                            </div>
-                            <div class="col-md-3 text-center">
-                            <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student3.jpg" alt=""></i>
-                            <h5>Ngô Đồng Tháp</h5>
-                            <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
+                    {% if student_list|length <= 4  %}
+                        <div class="carousel-item active">
+                            <div class="row">
+                            {% for student in student_list %}
+                                <div class="col-md-3 text-center">
+                                <i class="fas fa-bold"><img class="rounded-circle w-25" src="uploads/images/{{ student.getThumb() }}" alt=""></i>
+                                <p class="font-weight-bold">{{ student.getName() }}</p>
+                                <p><label class="">{{ student.getCourse() }} &nbsp</label><a href="#" class="badge badge-success">{{ student.getPoint() }}</a></p>
+                                </div>
+                             {% endfor %}    
                             </div>
                         </div>
-                    </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                            {% for student in student_list %}
+                                <div class="col-md-3 text-center">
+                                <i class="fas fa-bold"><img class="rounded-circle w-25" src="uploads/images/{{ student.getThumb() }}" alt=""></i>
+                                <p class="font-weight-bold">{{ student.getName() }}</p>
+                                <p><label class="">{{ student.getCourse() }} &nbsp</label><a href="#" class="badge badge-success">{{ student.getPoint() }}</a></p>
+                                </div>
+                             {% endfor %}    
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if student_list|length > 4  %}
+                        <div class="carousel-item active">
+                            <div class="row">
+                            {% for student in student_list|slice(0, 4) %}
+                                <div class="col-md-3 text-center">
+                                <i class="fas fa-bold"><img class="rounded-circle w-25" src="uploads/images/{{ student.getThumb() }}" alt=""></i>
+                                <p class="font-weight-bold">{{ student.getName() }}</p>
+                                <p><label class="">{{ student.getCourse() }} &nbsp</label><a href="#" class="badge badge-success">{{ student.getPoint() }}</a></p>
+                                </div>
+                             {% endfor %}    
+                            </div>
+                        </div>
+
+                        {% set block = student_list|length // 4 %}
+                            {% for i in 1..(block-1) %}
+                                <div class="carousel-item">
+                                <div class="row">
+                                {% for student in student_list|slice(4*i,4*i+3) %}
+                                    <div class="col-md-3 text-center">
+                                    <i class="fas fa-bold"><img class="rounded-circle w-25" src="uploads/images/{{ student.getThumb() }}" alt=""></i>
+                                    <p class="font-weight-bold">{{ student.getName() }}</p>
+                                    <p><label class="">{{ student.getCourse() }} &nbsp</label><a href="#" class="badge badge-success">{{ student.getPoint() }}</a></p>
+                                    </div>
+                                {% endfor %}    
+                                </div>
+                            </div>
+                        {% endfor %}
+                        
+                    {% endif %}
                     <!-- Carousel Item 1 -->
 
-                    <div class="carousel-item">
+                    {# <div class="carousel-item">
                     <div class="row">
                         <div class="col-md-3">
                             <i class="fas fa-bold"><img class="rounded-circle w-25" src="images/student3.jpg" alt=""></i>
@@ -179,7 +202,7 @@
                             <p><label class="">B2 Châu Âu: &nbsp</label><a href="#" class="badge badge-success">7.5</a></p>
                         </div>
                     </div>
-                    </div>
+                    </div> #}
                     
                 </div>
             </div>
