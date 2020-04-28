@@ -17,6 +17,7 @@ class CoursedetailController extends AbstractController
         $course = $this->getDoctrine()->getRepository(Course::class)->find($idcourse);
         $group = $this->getDoctrine()->getRepository(Coursegroup::class)->find($idgroup);
         $similars = $this->getDoctrine()->getRepository(Course::class)->findByExampleField($idgroup);
+        
         return $this->render('coursedetail/index.html.twig', [
             'course' => $course,
             'group' => $group,

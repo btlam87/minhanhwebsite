@@ -76,9 +76,7 @@
             <div class="col-lg-4 col-md-4 col-s-12 mt-4">
                     <ul class="footer_list">
                     <li class="minhanhcolor brandname">Trung tâm anh ngữ Minh Anh</li>
-                    <li>Địa chỉ: 35 Nguyễn Hiền, Ninh Kiều, Cần Thơ</li>
-                    <li>Điện thoại: 065 123 1234</li>
-                    <li>Hotline: 0906 650 262 - Thầy Trạng</li>
+                    {{ render(controller('App\\Controller\\ContactpageController::contactfooter')) }}
                     <li>
                         <div class="social_icon">
                             {{ render(controller('App\\Controller\\IconsController::icons')) }}

@@ -20,5 +20,14 @@ class ContactpageController extends AbstractController
             'contacts_list' => $contacts,
             'qas_list'      => $qa,
         ]);
-    }  
+    }
+    public function contactfooter()
+    {
+        $contacts = $this->getDoctrine()->getRepository(Contacts::class)->findAll();
+        
+
+        return $this->render('contactpage/contactfooter.html.twig', [
+            'contact_list' => $contacts,
+        ]);
+    }    
 }

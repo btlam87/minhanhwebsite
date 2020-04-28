@@ -43,9 +43,6 @@
       </div>
       <p><label class="article_info">Nguồn: &nbsp {{ article.getAuthor() }}</label></p> 
       <hr>
- 
-      
-
   </div>
   <div class="row">
     <div class="col-6 col-s-12">
@@ -62,23 +59,11 @@
     <div class="col-6 col-s-12">
       <h5>Minh Anh đào tạo:</h5>
       <ul class="course_list">
-      
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A1 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn A2 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B1 </a></li>
-        <li><a href="#" class="minhanh_link_1">Đào tạo chứng chỉ anh văn B2 </a></li>
+        {% for course in course_list|slice(0,6) %}
+        <li><a href="/Dao-tao/{{course.getCoursegroup().id()}}/{{course.getId()}}" class="minhanh_link_1">{{ course.getName()}} </a></li>
+        {% endfor %}       
       </ul>
-  </div>
     </div>
+  </div>
 </div>
-{% endblock %}
-
-{% block javascripts %}
-<script language = "javascript"> 
- 
-  
-</script> 
- 
-
-
 {% endblock %}

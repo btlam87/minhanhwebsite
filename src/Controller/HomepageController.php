@@ -7,6 +7,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Slide;
 use App\Entity\Excillencestudent;
 use App\Entity\Article;
+use App\Entity\Course;
+use App\Entity\Coursegroup;
+use App\Entity\Skill;
+use App\Entity\Contact;
 
 class HomepageController extends AbstractController
 {
@@ -19,13 +23,21 @@ class HomepageController extends AbstractController
         $students = $this->getDoctrine()->getRepository(Excillencestudent::class)->findAll();
         $facility_ar = $this->getDoctrine()->getRepository(Article::class)->find(4);
         
+        $coursesgroup = $this->getDoctrine()->getRepository(Coursegroup::class)->findAll();
+        $course = $this->getDoctrine()->getRepository(Course::class)->findAll();
+
+        $articles = $this->getDoctrine()->getRepository(Article::class)->getAllskillarticle();
+        
         return $this->render('homepage/index.html.twig',
         
-         ['title'=>'Anh ngữ Minh Anh',
+         [
          'slider'=> $slider,
          'student_list' => $students,
          'facility_ar'=>$facility_ar,
-
+         'coursesgroup_list'=>$coursesgroup,
+         'course_list' =>$course,
+         'article_list' => $articles,
+         
          ]);
     }
 }
