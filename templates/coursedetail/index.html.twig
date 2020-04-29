@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block meta %}
+<meta name="Keywords" content="{{ course.getKeywords() }} ">
+<meta name="description" content="{{ course.getDescription() }} ">
+<meta name="author" content="Minh Anh ">
 
+{% endblock %}
 {% block title %}{{ course.getName() }}{% endblock %}
 
 {% block body %}
@@ -27,7 +32,7 @@
       {{ course.getDescription() }}
       </h5>
       <br/>
-      <img class="img-fluid" src="/images/{{ course.getThumb() }}" alt="">
+      <img class="img-fluid" src="/uploads/images/{{ course.getThumb() }}" alt="">
       <br/>
       
       <div id="content">

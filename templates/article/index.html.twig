@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block meta %}
+<meta name="Keywords" content="{{ article.getKeywords() }} ">
+<meta name="description" content="{{ article.getDescription() }} ">
+<meta name="author" content="{{ article.getAuthor() }} ">
 
+{% endblock %}
 {% block title %}{{ article.getName() }}{% endblock %}
 
 {% block body %}
@@ -30,12 +35,11 @@
       {{ article.getDescription() }}
       </h5>
       <br/>
-      <img class="img-fluid" src="/images/{{ article.getThumb() }}" alt="">
+      <img class="img-fluid" src="/uploads/images/{{ article.getThumb() }}" alt="">
       <br/>
       <br/>
       <div id="content">
-         {# {{  article.getContent().to_html|raw }} #}
-
+         
          {% autoescape 'html' %}
             {{ article.getContent()|raw }} 
            

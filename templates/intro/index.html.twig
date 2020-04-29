@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
+{%  block meta %}
 
+<meta name="Keywords" content="{{ intro.getKeywords() }}">
+<meta name="description" content="{{ intro.getDescription()}}">
+<meta name="author" content="{{ intro.getAuthor() }}">
+{% endblock %}
 {% block title %}Giới thiệu trung tâm ngoại ngữ Minh Anh{% endblock %}
 
 {% block body %}

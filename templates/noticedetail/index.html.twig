@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
+{% block meta %}
+<meta name="Keywords" content="{{ notice.getKeywords() }} ">
+<meta name="description" content="{{ notice.getDescription() }} ">
+<meta name="author" content="{{ notice.getAuthor() }} ">
 
+{% endblock %}
 {% block title %}{{ notice.getName() }}{% endblock %}
 
 {% block body %}
