@@ -40,21 +40,63 @@ class Slide
      */
     private $description;
 
+    //added
+    
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="datetime")
      */
-    private $createdate;
+    private $updatedate;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $status;
 
     public function __construct()
     {
-        $this->createdate = new \DateTime();
         $this->status = true;
+        $this->updatedate = new \DateTime();
     }
+
+    public function getThumbFile()
+    {
+        return $this->thumbFile;
+    }
+
+    public function setThumbFile($thumbFile): void
+    {
+        $this->thumbFile = $thumbFile;
+        
+        if($thumbFile)
+        {
+            $this->updatedate = new \DateTime();
+        }
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUpdatedate(): ?\DateTimeInterface
+    {
+        return $this->updatedate;
+    }
+
+    public function setUpdatedate(\DateTimeInterface $updatedate): self
+    {
+        $this->updatedate = $updatedate;
+
+        return $this;
+    }
+   //added end
 
     public function getId(): ?int
     {
@@ -72,17 +114,6 @@ class Slide
 
         return $this;
     }
-    public function getThumbFile()
-    {
-        return $this->thumbFile;
-    }
-
-    public function setThumbFile($thumbFile): void
-    {
-        $this->thumbFile = $thumbFile;
-   
-    }
-
     public function getLink(): ?string
     {
         return $this->link;
@@ -103,30 +134,6 @@ class Slide
     public function setDescription(?string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getCreatedate(): ?\DateTimeInterface
-    {
-        return $this->createdate;
-    }
-
-    public function setCreatedate(?\DateTimeInterface $createdate): self
-    {
-        $this->createdate = $createdate;
-
-        return $this;
-    }
-
-    public function getStatus(): ?bool
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?bool $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }

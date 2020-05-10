@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -33,6 +34,66 @@ class Footericons
      */
     private $link;
 
+
+    //added
+    
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedate;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
+    public function __construct()
+    {
+        $this->status = true;
+        $this->updatedate = new \DateTime();
+    }
+
+    public function getThumbFile()
+    {
+        return $this->thumbFile;
+    }
+
+    public function setThumbFile($thumbFile): void
+    {
+        $this->thumbFile = $thumbFile;
+        if($thumbFile)
+        {
+            $this->updatedate = new \DateTime();
+        }
+    }
+
+    public function getStatus(): ?bool
+    {
+        return $this->status;
+    }
+
+    public function setStatus(bool $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUpdatedate(): ?\DateTimeInterface
+    {
+        return $this->updatedate;
+    }
+
+    public function setUpdatedate(\DateTimeInterface $updatedate): self
+    {
+        $this->updatedate = $updatedate;
+
+        return $this;
+    }
+   //added end
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -50,17 +111,6 @@ class Footericons
         return $this;
     }
 
-    public function getThumbFile()
-    {
-        return $this->thumbFile;
-    }
-
-    public function setThumbFile($thumbFile): void
-    {
-        $this->thumbFile = $thumbFile;
-        
-    }
-
     public function getLink(): ?string
     {
         return $this->link;
@@ -71,5 +121,9 @@ class Footericons
         $this->link = $link;
 
         return $this;
+    }
+    public function __Tostring()
+    {
+        return $this->thumb;
     }
 }

@@ -19,6 +19,21 @@ class CoursegroupRepository extends ServiceEntityRepository
         parent::__construct($registry, Coursegroup::class);
     }
 
+    public function findActive()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a
+            FROM App\Entity\Coursegroup a
+            WHERE a.status = 1
+            ORDER BY a.id ASC'
+        );
+
+        // returns an array of student
+        return $query->getResult();
+    }
+    
     // /**
     //  * @return Coursegroup[] Returns an array of Coursegroup objects
     //  */

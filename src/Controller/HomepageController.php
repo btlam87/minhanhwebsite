@@ -19,11 +19,11 @@ class HomepageController extends AbstractController
      */
     public function homepage()
     {
-        $slider = $this->getDoctrine()->getRepository(Slide::class)->findAll();
-        $students = $this->getDoctrine()->getRepository(Excillencestudent::class)->findAll();
+        $slider = $this->getDoctrine()->getRepository(Slide::class)->findActive();
+        $students = $this->getDoctrine()->getRepository(Excillencestudent::class)->findActive();
         $facility_ar = $this->getDoctrine()->getRepository(Article::class)->find(4);
         
-        $coursesgroup = $this->getDoctrine()->getRepository(Coursegroup::class)->findAll();
+        $coursesgroup = $this->getDoctrine()->getRepository(Coursegroup::class)->findActive();
         $course = $this->getDoctrine()->getRepository(Course::class)->findAll();
 
         $articles = $this->getDoctrine()->getRepository(Article::class)->getAllskillarticle();

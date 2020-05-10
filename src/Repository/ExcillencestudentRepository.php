@@ -47,4 +47,18 @@ class ExcillencestudentRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findActive()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a
+            FROM App\Entity\Excillencestudent a
+            WHERE a.status = 1
+            ORDER BY a.id ASC'
+        );
+
+        // returns an array of student
+        return $query->getResult();
+    }
 }

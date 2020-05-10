@@ -47,4 +47,18 @@ class SlideRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findActive()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT a
+            FROM App\Entity\Slide a
+            WHERE a.status = 1
+            ORDER BY a.id ASC'
+        );
+
+        // returns an array of student
+        return $query->getResult();
+    }
 }

@@ -46,7 +46,7 @@ class ArticleRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             'SELECT a
             FROM App\Entity\Article a, App\Entity\Articletype b
-            WHERE a.skill = b.id
+            WHERE a.skill = b.id and a.status = 1
             ORDER BY a.id ASC'
         );
 

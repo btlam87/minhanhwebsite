@@ -5,18 +5,22 @@ vich_uploader:
         articlethumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
+            namer: Vich\UploaderBundle\Naming\Base64Namer
 
         coursethumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
+            namer: Vich\UploaderBundle\Naming\Base64Namer
 
         coursesgroupthumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
-        
+            namer: Vich\UploaderBundle\Naming\Base64Namer
+
         iconsthumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
+            namer: Vich\UploaderBundle\Naming\Base64Namer
 
         filebrowserBrowseRouteParameters:
             uri_prefix: '%uploads_path%'
@@ -25,7 +29,9 @@ vich_uploader:
         sliderthumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
+            namer: Vich\UploaderBundle\Naming\Base64Namer
 
         studentthumb:
             uri_prefix: '%uploads_path%'
             upload_destination: '%kernel.project_dir%/public/%uploads_path%'
+            namer: Vich\UploaderBundle\Naming\Base64Namer
